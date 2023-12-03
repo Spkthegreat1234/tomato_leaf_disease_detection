@@ -5,7 +5,7 @@ from sklearn import preprocessing
 import os
 
 def extract_features(image):
-    # Use simple color histogram features as an example
+
     hist = cv2.calcHist([image], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
     hist = cv2.normalize(hist, hist).flatten()
     return hist
@@ -41,7 +41,7 @@ model = SVC(kernel='linear')
 model.fit(X_train, y_train)
 # Now, let's use the trained model to predict on new input images
 # Replace 'path/to/your/input/image.jpg' with the path to your input image
-input_image_path = 'images/unhealthy_images_tomato/3cb6ee9b-8550-4216-bde5-814807add4e5___PSU_CG 2395.JPG'
+input_image_path = 'tomato_leaf_disease_detection/images/Input_images_tomato/3cb6ee9b-8550-4216-bde5-814807add4e5___PSU_CG 2395.JPG'
 # Load the input image
 input_image = cv2.imread(input_image_path)
 # Extract features from the input image
